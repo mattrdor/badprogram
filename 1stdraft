@@ -1,34 +1,70 @@
-    class Inventory {
-        
-    }
-    public: {
-        int food=10;
-        int gold=1000;
-        int hp=100;
-        int getFood() {
-            return food;
-        }
-        int getGold() {
-            return food;
-        }
-        int getHp() {
-            return food;
-        }
-            
-        }
-    };
+#pragma once
+#include <iostream>
+#include <cstdlib>
+class Inventory {
+	public: {
+		string genInvText = "You have " << food << "food. You have " << hp << "HP and " << gold << "gold.\n"
+		int food = 10;
+		int gold = 1000;
+		int hp = 100;
+		int getFood() {
+			return food;
+		}
+		int getGold() {
+			return food;
+		}
+		int getHp() {
+			return food;
+		}
+
+	}
+	};
 class Forest {
-    private: {
-        void print1stStatus() {
-            cout<<""<<endl;
-        }
-        
-        
-    }
-    public: {
-        void badEvent1() {
-            int randFood=;
-            food-=
-        }
-    }
+private: {
+	string forestName = "";
+	int nameChance = rand() % 9 + 1;
+
+	if (nameChance == 0) {
+		forestName = "Amazon";
+	}
+	else if (nameChance == 1) {
+		forestName = "Ligma";
+	}
+	else if (nameChance == 2) {
+		forestName = "";
+	}
+	else if (nameChance == 3) {
+		forestName = "";
+	}
+	else if (nameChance == 4) {
+		forestName = "";
+	}
+	else if (nameChance == 5) {
+		forestName = "";
+	}
+	else if (nameChance == 6) {
+		forestName = "";
+	}
+	else if (nameChance == 7) {
+		forestName = "";
+	}
+	else if (nameChance == 8) {
+		forestName = "";
+	}
+	else if (nameChance == 9) {
+		forestName = "";
+	}
+
+	void print1stStatus() {
+		cout << genInvText << "You've arrived at the " << forestName << "forest." << endl;
+	}
+
+
+}
+public: {
+	void badEvent1() {
+		int randFood = ;
+		food -=
+	}
+}
 };
