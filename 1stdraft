@@ -1,20 +1,29 @@
 #pragma once
 #include <iostream>
 #include <cstdlib>
-class Inventory {
+class Inv {
 	public: {
-		string genInvText = "You have " << food << "food. You have " << hp << "HP and " << gold << "gold.\n"
+		void genInvText() {
+			cout << "You have " << food << " food. You have " << hp << " HP and " << gold << " gold.\n"
+		}
 		int food = 10;
 		int gold = 1000;
 		int hp = 100;
+		int areas = 0;
 		int getFood() {
 			return food;
 		}
 		int getGold() {
-			return food;
+			return gold;
 		}
 		int getHp() {
-			return food;
+			return hp;
+		}
+		int getAreas() {
+			return areas;
+		}
+		void genInvText() {
+			cout << "You have " << food << " food. You have " << hp << " HP and " << gold << " gold.\n"
 		}
 
 	}
@@ -62,8 +71,120 @@ private: {
 	void treeFoodBandits() {
 		int randFood = rand() % 5 + 1;
 		food -= randFood;
+		cout << "Some little dudes walk up with slingshots and take your apples. You lose " << randFood << " food.";
 
 }
 
 }
 };
+class City {
+private: {
+	string cityName = "";
+	int nameChance = rand() % 7 + 1;
+
+	if (nameChance == 0) {
+		cityName = "";
+	}
+	else if (nameChance == 1) {
+		cityName = "";
+	}
+	else if (nameChance == 2) {
+		cityName = "";
+	}
+	else if (nameChance == 3) {
+		cityName = "";
+	}
+	else if (nameChance == 4) {
+		cityName = "";
+	}
+	else if (nameChance == 5) {
+		cityName = "";
+	}
+	else if (nameChance == 6) {
+		cityName = "";
+	}
+	else if (nameChance == 7) {
+		cityName = "";
+	}
+	
+
+	void print1stStatus() {
+		cout << genInvText << "You've arrived at " << cityName << " city." << endl;
+	}
+	
+	void mugging() {
+		int randGold = rand() % 300 + 401;
+		string userIn = "";
+		int runChance = 0;
+		cout << "Some stinky dwarfs walk up with British RML 2.5 inch 10 pounder cannons and demand " << randGold << " gold. You can try to run or give in. Wyd? Type run to run or rip to give in.\n" //You lose " << randFood << " food.";
+		
+		while (userIn != "run" && userIn != "fight" && userIn != "rip")
+		cin >> userIn;
+		runChance = rand() % 5 + 1;
+		randHP = rand() % 40 + 1;
+		if (userIn == "run" && runChance = 0) {
+			cout << "You escape the dwarfs with your gold.";
+		} else if (userIn == "run") {
+			gold -= randgold+200;
+			cout << "The dwarfs stun you with a cannonball doing , run up to you, and steal " << randGold << " gold along with 200 more gold. Nice job.";
+		} else if (userIn == "rip") {
+			gold -= randgold;
+			cout << ""Thanks for the " << randGold << " gold, dummy."";
+		} else {
+			cout << "Sorry, didn't understand that." << endl;
+		}
+	void shop() {
+	string shopName="";
+	string sOName="";
+	string userIn="";
+	int sONameChance = rand() % 3 + 1;
+	int sNameChance = rand() % 3 + 1;
+	if (sNameChance == 0) {
+		shopName = "";
+	}
+	else if (sNameChance == 1) {
+		shopName = "";
+	}
+	else if (sNameChance == 2) {
+		shopName = "";
+	}
+	else if (sNameChance == 3) {
+		shopName = "";
+	}
+	if (sONameChance == 0) {
+		sOName = "";
+	}
+	else if (sONameChance == 1) {
+		sOName = "";
+	}
+	else if (sONameChance == 2) {
+		sOName = "";
+	}
+	else if (sONameChance == 3) {
+		sOName = "";
+	}
+		cout << "You arrive at " << shopName << " shop. " << sOName << " is selling schwarma and potions. You can buy 1 food for 100 gold or 10 HP for 200 gold. Type food for food, hp for HP, or nothing to leave the shop.\n";
+		while (userIn != "food" && userIn != "hp" && userIn != "nothing") {
+		cin >> userIn;
+		}
+
+}
+
+}
+};
+
+int main() {
+Inv aInv;
+cout<<"(intro text) ";
+aInv.genInvText();
+
+while(aInv.getHP()>=1) {
+	while(aInv.getFood()>=1) {
+		
+	}
+	aInv.hp -= 5;
+	
+}
+cout << "You are now dead. You got to " << aInv.getAreas() << " areas. Woop dee doo." << endl;
+return 0;
+}
