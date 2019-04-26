@@ -64,7 +64,7 @@ private: {
 public: {
 	void badEvent1() {
 		int randFood = ;
-		food -=
+		food -= randFood;
 	}
 }
 };
