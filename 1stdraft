@@ -56,7 +56,7 @@ private: {
 	}
 
 	void print1stStatus() {
-		cout << genInvText << "You've arrived at the " << forestName << "forest." << endl;
+		cout << genInvText << "You've arrived at the " << forestName << " forest." << endl;
 	}
 
 
