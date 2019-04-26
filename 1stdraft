@@ -58,13 +58,12 @@ private: {
 	void print1stStatus() {
 		cout << genInvText << "You've arrived at the " << forestName << " forest." << endl;
 	}
-
+	
+	void treeFoodBandits() {
+		int randFood = rand() % 5 + 1;
+		food -= randFood;
 
 }
-public: {
-	void badEvent1() {
-		int randFood = ;
-		food -= randFood;
-	}
+
 }
 };
