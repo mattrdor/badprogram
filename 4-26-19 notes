@@ -1,0 +1,3 @@
+<fstream>- library with ifstream
+ifstream: ifstream input("*insert filepath here*")
+input is bool
