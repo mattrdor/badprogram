@@ -3,10 +3,8 @@
 #include <cstdlib>
 class Inv {
 	public: {
-		void genInvText() {
-			cout << "You have " << food << " food. You have " << hp << " HP and " << gold << " gold.\n"
-		}
-		int food = 10;
+	
+		int food = 10; //initializing all global variables
 		int gold = 1000;
 		int hp = 100;
 		int areas = 0;
@@ -22,7 +20,7 @@ class Inv {
 		int getAreas() {
 			return areas;
 		}
-		void genInvText() {
+		void genInvText() { //method for displaying starting status
 			cout << "You have " << food << " food. You have " << hp << " HP and " << gold << " gold.\n"
 		}
 
@@ -65,13 +63,13 @@ private: {
 	}
 
 	void print1stStatus() {
-		cout << genInvText << "You've arrived at the " << forestName << " forest." << endl;
+		cout << genInvText << "You've arrived at the " << forestName << " forest." << endl; //forestName is randomly generated above
 	}
 	
 	void treeFoodBandits() {
 		int randFood = rand() % 5 + 1;
 		food -= randFood;
-		cout << "Some little dudes walk up with slingshots and take your apples. You lose " << randFood << " food.";
+		cout << "Some little hairy dudes walk up with slingshots and take your apples. You lose " << randFood << " food.";
 
 }
 
@@ -109,7 +107,7 @@ private: {
 	
 
 	void print1stStatus() {
-		cout << genInvText << "You've arrived at " << cityName << " city." << endl;
+		cout << genInvText << "You've arrived at " << cityName << " city after a long journey on the roads. Your legs feel like jelly." << endl;
 	}
 	
 	void mugging() {
@@ -119,19 +117,19 @@ private: {
 		cout << "Some stinky dwarfs walk up with British RML 2.5 inch 10 pounder cannons and demand " << randGold << " gold. You can try to run or give in. Wyd? Type run to run or rip to give in.\n" //You lose " << randFood << " food.";
 		
 		while (userIn != "run" && userIn != "fight" && userIn != "rip")
-		cin >> userIn;
-		runChance = rand() % 5 + 1;
+		cin >> userIn; //constantly asks for user input until the user enters a valid command
+		runChance = rand() % 5 + 1; //1 in 5 chance to escape
 		randHP = rand() % 40 + 1;
-		if (userIn == "run" && runChance = 0) {
-			cout << "You escape the dwarfs with your gold.";
+		if (userIn == "run" && runChance = 0) { //if runChance is 0 the player doesn't escape
+			cout << "You escape the dwarfs with your gold.\n";
 		} else if (userIn == "run") {
 			gold -= randgold+200;
-			cout << "The dwarfs stun you with a cannonball doing , run up to you, and steal " << randGold << " gold along with 200 more gold. Nice job.";
+			cout << "The dwarfs stun you with a cannonball doing , run up to you, and steal " << randGold << " gold along with 200 more gold. Nice job.\n";
 		} else if (userIn == "rip") {
 			gold -= randgold;
-			cout << ""Thanks for the " << randGold << " gold, dummy."";
+			cout << ""Thanks for the " << randGold << " gold, dummy."\n";
 		} else {
-			cout << "Sorry, didn't understand that." << endl;
+			cout << "Sorry, didn't understand that.\n" << endl;
 		}
 	void shop() {
 	string shopName="";
@@ -175,14 +173,15 @@ private: {
 
 int main() {
 Inv aInv;
-cout<<"(intro text) ";
+cout<<"(intro text) \n";
 aInv.genInvText();
-
-while(aInv.getHP()>=1) {
-	while(aInv.getFood()>=1) {
+cout<<endl;
+while(aInv.getHP()>=1) { //while player has more than 0 health the game runs
+	while(aInv.getFood()>=1) { //while player has no food they lose health
 		
 	}
 	aInv.hp -= 5;
+	cout << "You have no food and you're slowly deteriorating. It feels like your stomach is eating itself. You lose 5 health.";
 	
 }
 cout << "You are now dead. You got to " << aInv.getAreas() << " areas. Woop dee doo." << endl;
