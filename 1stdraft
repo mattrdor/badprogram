@@ -24,15 +24,37 @@ class Inv {
 			cout << "You have " << food << " food. You have " << hp << " HP and " << gold << " gold.\n"
 		}
 		void mugging() {
-		int randgold = rand() % 400 + 1;
-		gold -= randgold;
-		cout << "Some bandits walk up with longbows and demand your gold as you cower in fear. You lose " << randgold << " gold.";
+		int randGold = rand() % 400 + 21;
+		gold -= randGold;
+		cout << "Some bandits walk up with longbows and demand your gold as you cower in fear. You lose " << randGold << " gold.\n";
 		}
 		void nice() {
-		int randgold = rand() % 400 + 1;
-		gold -= randgold;
-		cout << "Some bandits walk up with longbows and demand your gold as you cower in fear. You lose " << randgold << " gold.";
+		int randGold = rand() % 200 + 21;
+		gold += randGold;
+		cout << "Some nice gentlemen in suits greet you and you have a nice conversation about the meaning of life and parallel dimensions. They decide to have pity on you and they give you " << randGold << " gold.\n";
 		}
+		void nice2() {
+		int randgold = rand() % 300 + 21;
+		gold += randGold;
+		cout << "You witness a frail dwarf fall to the ground in front of you due to a heart attack. You take his " << randgold << " gold.\n";
+		}
+		void foodBad() {
+		int randFood = (rand() % 6 + 1) + 2;
+		food -= randFood;
+		cout << "You trip and spill " << randFood << " food. You feel very disappointed in yourself.\n";
+		}
+		void foodGood() {
+		int randFood = (rand() % 4 + 1) + 1;
+		food += randFood;
+		cout << "You hear things falling all around you. As you look up, you realize that there is bread falling from the sky. Turns out a plane had to drop its load of to stay airborne. You're able to catch " << randFood << " food.\n";
+		}
+		void goldGood() {
+		int randGold = rand() % 200 + 21;
+		gold -= randGold;
+		cout << "You look under a rock for some reason and find some gold. Your sack fills with " << randGold << " gold.\n";
+		}
+		
+		
 	}
 	};
 class Forest {
@@ -76,7 +98,7 @@ private: {
 	}
 	
 	void treeFoodBandits() {
-		int randFood = rand() % 5 + 1;
+		int randFood = rand() % 5 + 2;
 		food -= randFood;
 		cout << "Some little hairy dudes walk up with slingshots and take your apples. You lose " << randFood << " food.";
 
@@ -191,16 +213,90 @@ Inv aInv;
 cout<<"(intro text) \n";
 aInv.genInvText();
 cout<<endl;
+int areaChance;
+int eventChance;
 while(aInv.getHP()>=1) { //while player has more than 0 health the game runs
 	while(aInv.getFood()>=1) { //while player has food the game runs normally
-	int areaChance = rand() % + 1;
+	areaChance = rand() % 3 + 1;
+	eventChance = rand() % 9 + 1;
 	Road road;
 	road.print1stStatus();
-	if (
+	for(i=0;i<2;i++) {
+	if (eventChance == 0) {
+	aInv.mugging();
+	}
+	if (eventChance == 1) {
+	aInv.nice();
+	}
+	if (eventChance == 2) {
+	aInv.foodBad();
+	}
+	if (eventChance == 3) {
+	aInv.foodGood();
+	}
+	if (eventChance == 4) {
+	aInv.goldGood();
+	}
+	if (eventChance == 5) {
+	aInv.nice2();
+	}
+	if (eventChance == 6) {
+	aInv.();
+	}
+	if (eventChance == 7) {
+	aInv.();
+	}
+	if (eventChance == 8) {
+	aInv.();
+	}
+	if (eventChance == 9) {
+	aInv.();
+	}
+	eventChance = rand() % 9 + 1;
+	}
 	
-	if (areaChance == 0) {
+	
+	if (areaChance == 0) { //the first scenario out of 5 is arriving at city
 	City city;
-	city
+	city.print1stStatus();
+	eventChance = rand() % 10 + 1;
+	for(i=0;i<3;i++) {
+	if (eventChance == 0) {
+	aInv.mugging();
+	}
+	if (eventChance == 1) {
+	aInv.nice();
+	}
+	if (eventChance == 2) {
+	aInv.foodBad();
+	}
+	if (eventChance == 3) {
+	aInv.foodGood();
+	}
+	if (eventChance == 4) {
+	aInv.goldGood();
+	}
+	if (eventChance == 5) {
+	aInv.nice2();
+	}
+	if (eventChance == 6) {
+	aInv.();
+	}
+	if (eventChance == 7) {
+	aInv.();
+	}
+	if (eventChance == 8) {
+	aInv.();
+	}
+	if (eventChance == 9) {
+	aInv.();
+	}
+	if (eventChance == 10) {
+	city.mugging();
+	}
+	eventChance = rand() % 9 + 1;
+	}
+	road.print1stStatus(); //player leaves city & goes to road
 	}
 	}
 	aInv.hp -= 5; //while player has no food they lose health
