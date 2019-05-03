@@ -23,7 +23,16 @@ class Inv {
 		void genInvText() { //method for displaying starting status
 			cout << "You have " << food << " food. You have " << hp << " HP and " << gold << " gold.\n"
 		}
-
+		void mugging() {
+		int randgold = rand() % 400 + 1;
+		gold -= randgold;
+		cout << "Some bandits walk up with longbows and demand your gold as you cower in fear. You lose " << randgold << " gold.";
+		}
+		void nice() {
+		int randgold = rand() % 400 + 1;
+		gold -= randgold;
+		cout << "Some bandits walk up with longbows and demand your gold as you cower in fear. You lose " << randgold << " gold.";
+		}
 	}
 	};
 class Forest {
@@ -107,7 +116,7 @@ private: {
 	
 
 	void print1stStatus() {
-		cout << genInvText << "You've arrived at " << cityName << " city after a long journey on the roads. Your legs feel like jelly." << endl;
+		cout << "You've arrived at " << cityName << " city after a long journey on the roads. Your legs feel like jelly." << Inv.genInvText() << endl;
 	}
 	
 	void mugging() {
@@ -170,20 +179,34 @@ private: {
 
 }
 };
+class Road {
+private: {
 
+	void print1stStatus() {
+		cout << "You're back on the road after leaving your last area.\n" << Inv.genInvText() << endl;
+	}
+};
 int main() {
 Inv aInv;
 cout<<"(intro text) \n";
 aInv.genInvText();
 cout<<endl;
 while(aInv.getHP()>=1) { //while player has more than 0 health the game runs
-	while(aInv.getFood()>=1) { //while player has no food they lose health
-		
+	while(aInv.getFood()>=1) { //while player has food the game runs normally
+	int areaChance = rand() % + 1;
+	Road road;
+	road.print1stStatus();
+	if (
+	
+	if (areaChance == 0) {
+	City city;
+	city
 	}
-	aInv.hp -= 5;
+	}
+	aInv.hp -= 5; //while player has no food they lose health
 	cout << "You have no food and you're slowly deteriorating. It feels like your stomach is eating itself. You lose 5 health.";
 	
 }
-cout << "You are now dead. You got to " << aInv.getAreas() << " areas. Woop dee doo." << endl;
+cout << "You are now dead. You got to " << aInv.getAreas() << " areas. Woop dee doo." << endl; //this would only happen after the player has less than 1 health
 return 0;
 }
