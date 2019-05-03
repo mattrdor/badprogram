@@ -296,7 +296,9 @@ while(aInv.getHP()>=1) { //while player has more than 0 health the game runs
 	}
 	eventChance = rand() % 9 + 1;
 	}
+	
 	road.print1stStatus(); //player leaves city & goes to road
+	
 	}
 	}
 	aInv.hp -= 5; //while player has no food they lose health
