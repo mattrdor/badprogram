@@ -6,26 +6,25 @@
 int main() {
 	//Inv aInv;
 	int food = 10; //initializing all global variables
-	int gold = 1000;
+	int gold = 900;
 	int hp = 20;
 	int areas = 0;
 	srand(time(NULL));
-	int startChance = rand() % 2 + 1;
-	if(startChance=1)
-	std::cout << "The shining light of a new day dawns upon you. From a small village, you awaken and arise from your bed. The stories of legendary explorers discovering new lands and oceans have much influence over the youths of your village. You are no exception. You get dressed and prepare for a long journey. You hit the road with a small sack of food stuffs and your pittance of gold.\n";
+	int startChance = rand() % 3 + 1;
+	if(startChance==1)
+	std::cout << "The shining light of a new day dawns upon you. From a small village, you awaken and arise from your bed. The stories of legendary explorers discovering new lands and oceans have much influence over the youths of your village. You are no exception. You get dressed and prepare for a long journey. You hit the road with a small sack of food stuffs and your pittance of 900 gold.\n";
 	else {
-		std::cout << "The sun blazes on a sprawling city bustling with activity. The rich live in opulence at the city's center while the poor languish at the city's outer edge. The city's outer edge is a disgusting slum, with a dark, foul-smelling smog covering the area. Crime and disease run rampant. Garbage and sewage line the streets. From a pile of human feces and used toilet paper, you rise. Immediately, a gnome with a broken leg begins to hobble over to you. Screeching, 'GIVE ME YOUR GOLD, ALL YOUR GOLD!' (You lose 1000 gold) Cowering in fear, you throw the hobbling gnome all your gold. After losing all your gold, you leave this wretched city. You start your journey in a greatly depressed state.\n";
-		gold -= 1000;
+		std::cout << "The sun blazes on a sprawling city bustling with activity. The rich live in opulence at the city's center while the poor languish at the city's outer edge. The city's outer edge is a disgusting slum, with a dark, foul-smelling smog covering the area. Crime and disease run rampant. Garbage and sewage line the streets. From a pile of human feces and used toilet paper, you rise. Immediately, a gnome with a broken leg begins to hobble over to you. Screeching, 'GIVE ME YOUR GOLD, ALL YOUR GOLD!' Cowering in fear, you throw the hobbling gnome all your gold. (You lose 900 gold) After losing all your gold, you leave this wretched city. You start your journey in a greatly depressed state.\n";
+		gold -= 900;
 	}
 	//aInv.genInvText();
 
-	std::cout << "You have " << food << " food. You have " << hp << " HP and " << gold << " gold." << std::endl;
 	system("pause");
-	int areaChance = 0;
-	int eventChance = 0;
+	int areaChance = 1;
+	int eventChance = 1;
 	while (hp >= 1) { //while player has more than 0 health the game runs
-		if (food < 0)
-			food = 0;
+		
+			
 		if (food < 1) {
 			hp -= 5; //if player has no food they lose health
 			std::cout << "You have no food and you're slowly deteriorating. You could really go for anything right now, especially food. You lose 5 health.";
@@ -33,18 +32,26 @@ int main() {
 		}
 		else {
 			food -= 2;
-			std::cout << "You munch on some bread to stay alive. You lose 2 food.\nYou have " << food << " food. You have " << hp << " HP and " << gold << " gold." << std::endl;
+			std::cout << "You munch on some bread to stay alive. You lose 2 food.\n";
 		}
 		srand(time(NULL));
 		areaChance = rand() % 2 + 1;
 		srand(time(NULL));
-		eventChance = rand() % 6 + 1;
+		eventChance = rand() % 7 + 1;
 		//Road road;
 		//road.print1stStatus();
 		for (int i = 0; i < 1; i++) {
-			std::cout << "You have " << food << " food. You have " << hp << " HP and " << gold << " gold." << std::endl;
+			if (gold < 1) {
+				hp -= 5;
+				std::cout << "You owe money to various people across the land...\nYou think you hear the faint sound of footsteps. Suddenly, some bounty hunters run up to you and bonk you on the knees. You lose 5 health.";
+			}
+			if (hp < 1)
+				break;
+
 			if (food < 0)
-				food = 0;
+				std::cout << "You've lost so much food that the mysterious aether above will now forcibly sacrifice whatever food you acquire next. So basically...\n";
+			std::cout << "You have " << food << " food. You have " << hp << " HP and " << gold << " gold." << std::endl;
+				
 			if (eventChance == 1) {
 				//aInv.mugging();
 				srand(time(NULL));
@@ -61,7 +68,7 @@ int main() {
 				std::cout << "Some nice gentlemen in suits greet you and you have a nice conversation about the meaning of life and parallel dimensions. They decide to have pity on you and they give you " << randGold << " gold.\n";
 				system("pause");
 			}
-			if (eventChance == 2) {
+			if (eventChance == 3) {
 				//aInv.foodBad();
 				srand(time(NULL));
 				int randFood = (rand() % 8 + 1) + 2;
@@ -69,7 +76,7 @@ int main() {
 				std::cout << "You trip and spill " << randFood << " food. You feel very disappointed in yourself.\n";
 				system("pause");
 			}
-			if (eventChance == 3) {
+			if (eventChance == 4) {
 				//aInv.foodGood
 				srand(time(NULL));
 				int randFood = (rand() % 2 + 1) + 1;
@@ -77,7 +84,7 @@ int main() {
 				std::cout << "You hear things falling all around you. As you look up, you realize that there is bread falling from the sky. Turns out a plane had to drop its load of a whole lotta bread to stay airborne. You're able to catch " << randFood << " food.\n";
 				system("pause");
 			}
-			if (eventChance == 4) {
+			if (eventChance == 5) {
 				//aInv.goldGood();
 				srand(time(NULL));
 				int randGold = rand() % 100 + 21;
@@ -85,13 +92,49 @@ int main() {
 				std::cout << "You look under a rock for some reason and find some gold. Your sack fills with " << randGold << " gold.\n";
 				system("pause");
 			}
-			if (eventChance == 5) {
+			if (eventChance == 6) {
 				//aInv.nice2();
 				srand(time(NULL));
 				int randGold = rand() % 100 + 21;
 				gold += randGold;
 				std::cout << "You witness a frail dwarf fall to the ground in front of you due to a heart attack. You take his " << randGold << " gold.\n";
 				system("pause");
+			}
+			if (eventChance == 7) {
+				srand(time(NULL));
+				int randFood = rand() % 3 + 5;
+				std::string userIn = "";
+				int runChance = 0;
+				int randHP = 0;
+				std::cout << "Some threatening looking feral dogs look like they want about " << randFood << " food. Feeling lucky? You can try to run or give in. Type run to run or rip to give in.\n"; //You lose " << randFood << " food.";
+				system("pause");
+
+				while (userIn != "run" && userIn != "fight" && userIn != "rip") {
+					std::cin >> userIn; //constantly asks for user input until the user enters a valid command
+					srand(time(NULL));
+					runChance = rand() % 4 + 1; //1 in 4 chance to escape
+					srand(time(NULL));
+					randHP = rand() % 10 + 1;
+					if (userIn == "run" && runChance == 1) {
+						std::cout << "You escape the dogs with your food.\n";
+						system("pause");
+					}
+					else if (userIn == "run") {
+						food -= randFood + 2;
+						hp -= randHP;
+						std::cout << "The dogs chase you down and bite your leg doing " << randHP << " damage. You drop " << randFood + 2 << " food in a panic and escape.\n";
+						system("pause");
+					}
+					else if (userIn == "rip") {
+						food -= randFood;
+						std::cout << "You give the dogs the food they wanted and escape.\n";
+						system("pause");
+					}
+					else {
+						std::cout << "Sorry, didn't understand that.\n" << std::endl;
+						system("pause");
+					}
+				}
 			}
 			/*if (eventChance == 6) {
 				aInv.();
@@ -111,47 +154,54 @@ int main() {
 		}
 
 
-		if (areaChance == 0) { //the first scenario out of 4 is arriving at a city
-			if (food < 0)
-				food = 0;
+		if (areaChance == 1) { //the first scenario out of 4 is arriving at a city
+			
+				
 			//City city;
 			//city.print1stCityStatus();
 			std::string cityName("a");
 			srand(time(NULL));
-			int nameChance = rand() % 7 + 1;
+			int nameChance = rand() % 8 + 1;
 
-			if (nameChance == 0) {
+			if (nameChance == 1) {
 				cityName = "Logistics Center";
 			}
-			else if (nameChance == 1) {
+			else if (nameChance == 2) {
 				cityName = "Pet";
 			}
-			else if (nameChance == 2) {
+			else if (nameChance == 3) {
 				cityName = "Big Building";
 			}
-			else if (nameChance == 3) {
+			else if (nameChance == 4) {
 				cityName = "Lots of Steel";
 			}
-			else if (nameChance == 4) {
+			else if (nameChance == 5) {
 				cityName = "Urban Fallability";
 			}
-			else if (nameChance == 5) {
+			else if (nameChance == 6) {
 				cityName = "Capitalism";
 			}
-			else if (nameChance == 6) {
+			else if (nameChance == 7) {
 				cityName = "Oscar the Stinky Man's";
 			}
-			else if (nameChance == 7) {
+			else if (nameChance == 8) {
 				cityName = "Smog";
 			}
-			std::cout << "You've arrived at " << cityName << " city after a long journey on the roads. Your legs feel like jelly.";
-			std::cout << "\nYou have " << food << " food. You have " << hp << " HP and " << gold << " gold.\n" << std::endl;
+			std::cout << "You've arrived at " << cityName << " city after a long journey on the roads. Your legs feel like jelly.\n";
 			system("pause");
 			srand(time(NULL));
-			eventChance = rand() % 6 + 1;
+			eventChance = rand() % 7 + 1;
 			for (int i = 0; i < 2; i++) {
+				if (gold < 1) {
+					hp -= 5;
+					std::cout << "You owe money to various people across the land...\nYou think you hear the faint sound of footsteps. Suddenly, some bounty hunters run up to you and bonk you on the knees. You lose 5 health.";
+				}
+				if (hp < 0)
+					break;
+				if (food < 0)
+					std::cout << "You've lost so much food that the mysterious aether above will now forcibly sacrifice whatever food you acquire next. So basically...\n";
 				std::cout << "You have " << food << " food. You have " << hp << " HP and " << gold << " gold." << std::endl;
-				if (eventChance == 0) {
+				if (eventChance == 1) {
 					//aInv.mugging();
 					srand(time(NULL));
 					int randGold = rand() % 800 + 21;
@@ -159,7 +209,7 @@ int main() {
 					std::cout << "Some bandits walk up with longbows and demand your gold as you cower in fear. You lose " << randGold << " gold.\n";
 					system("pause");
 				}
-				if (eventChance == 1) {
+				if (eventChance == 2) {
 					//aInv.nice();
 					srand(time(NULL));
 					int randGold = rand() % 200 + 21;
@@ -167,7 +217,7 @@ int main() {
 					std::cout << "Some nice gentlemen in suits greet you and you have a nice conversation about the meaning of life and parallel dimensions. They decide to have pity on you and they give you " << randGold << " gold.\n";
 					system("pause");
 				}
-				if (eventChance == 2) {
+				if (eventChance == 3) {
 					//aInv.foodBad();
 					srand(time(NULL));
 					int randFood = (rand() % 6 + 1) + 2;
@@ -175,7 +225,7 @@ int main() {
 					std::cout << "You trip and spill " << randFood << " food. You feel very disappointed in yourself.\n";
 					system("pause");
 				}
-				if (eventChance == 3) {
+				if (eventChance == 4) {
 					//aInv.foodGood
 					srand(time(NULL));
 					int randFood = (rand() % 4 + 1) + 1;
@@ -183,7 +233,7 @@ int main() {
 					std::cout << "You hear things falling all around you. As you look up, you realize that there is bread falling from the sky. Turns out a plane had to drop its load of a whole lotta bread to stay airborne. You're able to catch " << randFood << " food.\n";
 					system("pause");
 				}
-				if (eventChance == 4) {
+				if (eventChance == 5) {
 					//aInv.goldGood();
 					srand(time(NULL));
 					int randGold = rand() % 200 + 21;
@@ -191,7 +241,7 @@ int main() {
 					std::cout << "You look under a rock for some reason and find some gold. Your sack fills with " << randGold << " gold.\n";
 					system("pause");
 				}
-				if (eventChance == 5) {
+				if (eventChance == 6) {
 					//aInv.nice2();
 					srand(time(NULL));
 					int randGold = rand() % 300 + 21;
@@ -199,53 +249,60 @@ int main() {
 					std::cout << "You witness a frail dwarf fall to the ground in front of you due to a heart attack. You take his " << randGold << " gold.\n";
 					system("pause");
 				}
-				if (eventChance == 6) {
+				if (eventChance == 7) {
 					std::string shopName = "";
 					std::string sOName = "";
 					std::string userIn;
 					bool buyFood = 0;
 					bool buyHP = 0;
 					srand(time(NULL));
-					int sONameChance = rand() % 3 + 1;
+					int sONameChance = rand() % 4 + 1;
 					srand(time(NULL));
-					int sNameChance = rand() % 3 + 1;
-					if (sNameChance == 0) {
+					int sNameChance = rand() % 4 + 1;
+					if (sNameChance == 1) {
 						shopName = "Slightly Useful";
 					}
-					else if (sNameChance == 1) {
+					else if (sNameChance == 2) {
 						shopName = "Mediocre";
 					}
-					else if (sNameChance == 2) {
+					else if (sNameChance == 3) {
 						shopName = "Old Stuff That Might Work";
 					}
-					else if (sNameChance == 3) {
+					else if (sNameChance == 4) {
 						shopName = "Trash Heap";
 					}
-					if (sONameChance == 0) {
+					if (sONameChance == 1) {
 						sOName = "Jimmy Butler";
 					}
-					else if (sONameChance == 1) {
+					else if (sONameChance == 2) {
 						sOName = "Mike Scott";
 					}
-					else if (sONameChance == 2) {
+					else if (sONameChance == 3) {
 						sOName = "Bishop Stevenson";
 					}
-					else if (sONameChance == 3) {
+					else if (sONameChance == 4) {
 						sOName = "Bill Cosby";
 					}
-					std::cout << "While walking through the city you encounter " << shopName << " shop. " << sOName << " is selling schwarma and potions. You can buy 1 food for 100 gold or 10 HP for 200 gold. Type food for food, hp for HP, or done to leave the shop.\n";
+					std::cout << "While walking through the city you encounter " << shopName << " shop. " << sOName << " is selling schwarma and potions. You can buy 1 food for 200 gold or 1 HP for 150 gold. Type food for food, hp for HP, or done to leave the shop.\n";
 					system("pause");
 					while (userIn != "done") { //will continue to ask for input until the user enters a valid command
 						std::cin >> userIn;
-						if (userIn == "food") {
-							buyFood = 1;
+						if (userIn == "food" && gold >= 200) {
+							food++;
+							gold -= 200;
 							std::cout << "\nYou buy 1 food for 100 gold.\n";
 							system("pause");
 						}
-						else if (userIn == "hp") {
+						else if (userIn == "food") {
+							std::cout << "Sorry, you only have " << gold << " gold.\n";
+						}
+						else if (userIn == "hp" && gold >= 150) {
 							buyHP = 1;
-							std::cout << "\nYou buy 10 HP for 200 gold.\n";
+							std::cout << "\nYou buy 1 HP for 150 gold.\n";
 							system("pause");
+						}
+						else if (userIn == "hp") {
+							std::cout << "Sorry, you only have " << gold << " gold.\n";
 						}
 						else if (userIn != "done") {
 							std::cout << "\nSorry, didn't understand that.\n";
@@ -271,22 +328,23 @@ int main() {
 					std::string userIn = "";
 					int runChance = 0;
 					int randHP = 0;
-					std::cout << "Some stinky dwarfs walk up with British RML 2.5 inch 10 pounder cannons and demand " << randGold << " gold. You can try to run or give in. Wyd? Type run to run or rip to give in.\n"; //You lose " << randFood << " food.";
+					std::cout << "Some stinky dwarfs walk up with British RML 2.5 inch 10 pounder cannons and demand " << randGold << " gold. You can try to run or give in. Type run to run or rip to give in.\n"; //You lose " << randFood << " food.";
 					system("pause");
 
 					while (userIn != "run" && userIn != "fight" && userIn != "rip") {
 						std::cin >> userIn; //constantly asks for user input until the user enters a valid command
 						srand(time(NULL));
-						runChance = rand() % 5 + 1; //1 in 5 chance to escape
+						runChance = rand() % 4 + 1; //1 in 4 chance to escape
 						srand(time(NULL));
-						randHP = rand() % 40 + 1;
-						if (userIn == "run" && runChance == 0) { //if runChance is 0 the player doesn't escape
+						randHP = rand() % 10 + 1;
+						if (userIn == "run" && runChance == 1) {
 							std::cout << "You escape the dwarfs with your gold.\n";
 							system("pause");
 						}
 						else if (userIn == "run") {
 							gold -= randGold + 200;
-							std::cout << "The dwarfs stun you with a cannonball doing , run up to you, and steal " << randGold << " gold along with 200 more gold. Nice job.\n";
+							hp -= randHP;
+							std::cout << "The dwarfs stun you with a cannonball doing " << randHP << " damage, run up to you, and steal " << randGold+200 << " gold.\n";
 							system("pause");
 						}
 						else if (userIn == "rip") {
@@ -303,53 +361,60 @@ int main() {
 			}
 			areas++;
 			std::cout << "You leave the city and continue walking on the lonely road." << std::endl;
-			std::cout << "You have " << food << " food. You have " << hp << " HP and " << gold << " gold." << std::endl;
 		}
-				if (areaChance == 1) { //the 2nd scenario is arriving at a forest
-					if (food < 0)
-						food = 0;
+				if (areaChance == 2) { //the 2nd scenario is arriving at a forest
+					
+						
 					//Forest forest;
 					std::string forestName = "a";
 					srand(time(NULL));
-					int nameChance = rand() % 9 + 1;
+					int nameChance = rand() % 10 + 1;
 
-					if (nameChance == 0) {
+					if (nameChance == 1) {
 						forestName = "Mini Pillar";
 					}
-					else if (nameChance == 1) {
+					else if (nameChance == 2) {
 						forestName = "Shooketh";
 					}
-					else if (nameChance == 2) {
+					else if (nameChance == 3) {
 						forestName = "Smelly Acorn";
 					}
-					else if (nameChance == 3) {
+					else if (nameChance == 4) {
 						forestName = "Stinky Fungus";
 					}
-					else if (nameChance == 4) {
+					else if (nameChance == 5) {
 						forestName = "Breathy";
 					}
-					else if (nameChance == 5) {
+					else if (nameChance == 6) {
 						forestName = "Margaret Thatcher";
 					}
-					else if (nameChance == 6) {
+					else if (nameChance == 7) {
 						forestName = "Sticky and Also Stinky";
 					}
-					else if (nameChance == 7) {
+					else if (nameChance == 8) {
 						forestName = "Grabby";
 					}
-					else if (nameChance == 8) {
+					else if (nameChance == 9) {
 						forestName = "Icky";
 					}
-					else if (nameChance == 9) {
+					else if (nameChance == 10) {
 						forestName = "Freddy Freaker";
 					}
 					//forest.print1stForestStatus();
-					std::cout << "You've arrived at " << forestName << " forest." << "You have " << food << " food. You have " << hp << " HP and " << gold << " gold.\n" << std::endl;
+					std::cout << "You've arrived at " << forestName << " forest.\n";
 					system("pause");
 					//aInv.genInvText();
 					srand(time(NULL));
-					eventChance = rand() % 7 + 1;
+					eventChance = rand() % 8;
 					for (int i = 0; i < 2; i++) {
+						if (gold < 1) {
+							hp -= 5;
+							std::cout << "You owe money to various people across the land...\nYou think you hear the faint sound of footsteps. Suddenly, some bounty hunters run up to you and bonk you on the knees. You lose 5 health.\n";
+						}
+						if (hp < 1)
+							break;
+						if (food < 0)
+							std::cout << "You've lost so much food that the mysterious aether above will now forcibly sacrifice whatever food you acquire next. So basically...\n";
 						std::cout << "You have " << food << " food. You have " << hp << " HP and " << gold << " gold." << std::endl;
 						if (eventChance == 0) {
 							//aInv.mugging();
@@ -420,19 +485,21 @@ int main() {
 							system("pause");
 						}
 						srand(time(NULL));
-						eventChance = rand() % 7 + 1;
+						eventChance = rand() % 8 + 1;
 					}
 
 
 					areas++;
+					std::cout << "You leave the forest and head back out on the monotonous road." << std::endl;
 				}
 
 
-				if (food < 0)
-					food = 0;
+				
+					
 
 			}
-			std::cout << "You have " << food << " food. You have " << hp << " HP and " << gold << " gold." << std::endl;
+
+			std::cout << "You have " << food << " food. You have " << hp << " HP and " << gold << " gold.\n";
 	
 			std::cout << "Therefore, you are now dead. You got to " << areas << " areas. Woop dee doo." << std::endl;
 			system("pause"); //this would only happen after the player has less than 1 health
