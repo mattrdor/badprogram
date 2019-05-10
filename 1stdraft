@@ -1,38 +1,35 @@
-
-
 #include <iostream>
 #include <cstdlib>
 #include <string>
-using namespace std;
 class Inv {
-public: 
+public:
 
 	int food = 10; //initializing all global variables
 	int gold = 1000;
 	int hp = 100;
 	int areas = 0;
 	int getFood(void);
-	
+
 	int getGold(void);
-	
+
 	int getHP(void);
-	
+
 	int getAreas(void);
-	
+
 	void genInvText(void);
-	
+
 	void mugging(void);
-	
+
 	void nice(void);
-	
+
 	void nice2(void);
-	
+
 	void foodBad(void);
-	
+
 	void foodGood(void);
-	
+
 	void goldGood(void);
-	
+
 };
 
 int Inv::getFood(void) {
@@ -48,43 +45,43 @@ int Inv::getAreas(void) {
 	return areas;
 }
 void Inv::genInvText(void) { //method for displaying starting status
-	cout << "You have " << food << " food. You have " << hp << " HP and " << gold << " gold.\n";
+	std::cout << "You have " << food << " food. You have " << hp << " HP and " << gold << " gold.\n";
 }
 void Inv::mugging(void) {
 	int randGold = rand() % 400 + 21;
 	gold -= randGold;
-	cout << "Some bandits walk up with longbows and demand your gold as you cower in fear. You lose " << randGold << " gold.\n";
+	std::cout << "Some bandits walk up with longbows and demand your gold as you cower in fear. You lose " << randGold << " gold.\n";
 }
 void Inv::nice(void) {
 	int randGold = rand() % 200 + 21;
 	gold += randGold;
-	cout << "Some nice gentlemen in suits greet you and you have a nice conversation about the meaning of life and parallel dimensions. They decide to have pity on you and they give you " << randGold << " gold.\n";
+	std::cout << "Some nice gentlemen in suits greet you and you have a nice conversation about the meaning of life and parallel dimensions. They decide to have pity on you and they give you " << randGold << " gold.\n";
 }
 void Inv::nice2(void) {
 	int randGold = rand() % 300 + 21;
 	gold += randGold;
-	cout << "You witness a frail dwarf fall to the ground in front of you due to a heart attack. You take his " << randGold << " gold.\n";
+	std::cout << "You witness a frail dwarf fall to the ground in front of you due to a heart attack. You take his " << randGold << " gold.\n";
 }
 void Inv::foodBad(void) {
 	int randFood = (rand() % 6 + 1) + 2;
 	food -= randFood;
-	cout << "You trip and spill " << randFood << " food. You feel very disappointed in yourself.\n";
+	std::cout << "You trip and spill " << randFood << " food. You feel very disappointed in yourself.\n";
 }
 void Inv::foodGood(void) {
 	int randFood = (rand() % 4 + 1) + 1;
 	food += randFood;
-	cout << "You hear things falling all around you. As you look up, you realize that there is bread falling from the sky. Turns out a plane had to drop its load of to stay airborne. You're able to catch " << randFood << " food.\n";
+	std::cout << "You hear things falling all around you. As you look up, you realize that there is bread falling from the sky. Turns out a plane had to drop its load of to stay airborne. You're able to catch " << randFood << " food.\n";
 }
 void Inv::goldGood(void) {
 	int randGold = rand() % 200 + 21;
 	gold -= randGold;
-	cout << "You look under a rock for some reason and find some gold. Your sack fills with " << randGold << " gold.\n";
+	std::cout << "You look under a rock for some reason and find some gold. Your sack fills with " << randGold << " gold.\n";
 }
 
 class Forest : public Inv {
-public: 
+public:
 	string forestName;
-	int nameChance;
+	int fNameChance;
 
 
 
@@ -96,122 +93,122 @@ public:
 
 
 };
-    Forest::nameChance = rand() % 9 + 1;
+Forest::fNameChance = rand() % 9 + 1;
 
-	if (Forest::nameChance == 0) {
-		Forest::forestName = "Amazon";
-	}
-	else if (Forest::nameChance == 1) {
-		Forest::forestName = "Ligma";
-	}
-	else if (Forest::nameChance == 2) {
-		Forest::forestName = "";
-	}
-	else if (Forest::nameChance == 3) {
-		Forest::forestName = "";
-	}
-	else if (Forest::nameChance == 4) {
-		Forest::forestName = "";
-	}
-	else if (Forest::nameChance == 5) {
-		Forest::forestName = "";
-	}
-	else if (Forest::nameChance == 6) {
-		Forest::forestName = "";
-	}
-	else if (Forest::nameChance == 7) {
-		Forest::forestName = "";
-	}
-	else if (Forest::nameChance == 8) {
-		Forest::forestName = "";
-	}
-	else if (Forest::nameChance == 9) {
-		Forest::forestName = "";
-	}
+if (Forest::fNameChance == 0) {
+	Forest::forestName = "Amazon";
+}
+else if (Forest::fNameChance == 1) {
+	Forest::forestName = "Ligma";
+}
+else if (Forest::fNameChance == 2) {
+	Forest::forestName = "";
+}
+else if (Forest::fNameChance == 3) {
+	Forest::forestName = "";
+}
+else if (Forest::fNameChance == 4) {
+	Forest::forestName = "";
+}
+else if (Forest::fNameChance == 5) {
+	Forest::forestName = "";
+}
+else if (Forest::fNameChance == 6) {
+	Forest::forestName = "";
+}
+else if (Forest::fNameChance == 7) {
+	Forest::forestName = "";
+}
+else if (Forest::fNameChance == 8) {
+	Forest::forestName = "";
+}
+else if (Forest::fNameChance == 9) {
+	Forest::forestName = "";
+}
 
 
 
 void Forest::print1stForestStatus(void) {
-	cout << "You've arrived at the " << forestName << " forest." << endl; //forestName is randomly generated above
+	std::cout << "You've arrived at the " << forestName << " forest." << endl; //forestName is randomly generated above
 }
 void Forest::treeFoodBandits(void) {
 	int randFood = rand() % 5 + 2;
 	food -= randFood;
-	cout << "Some little hairy dudes walk up with slingshots and take your apples. You lose " << randFood << " food.";
+	std::cout << "Some little hairy dudes walk up with slingshots and take your apples. You lose " << randFood << " food.";
 
 }
 
 class City : public Inv {
-public: 
+public:
 	string cityName;
 	int nameChance;
 
-	
+
 
 	void print1stCityStatus(void);
 
 	void mugging(void);
-	
 
-		void shop(void);
+
+	void shop(void);
 
 
 };
-
+City::cityName = "";
 City::nameChance = rand() % 7 + 1;
 
 if (City::nameChance == 0) {
-		City::cityName = "";
-	}
-	else if (City::nameChance == 1) {
-		City::cityName = "";
-	}
-	else if (City::nameChance == 2) {
-		City::cityName = "";
-	}
-	else if (City::nameChance == 3) {
-		City::cityName = "";
-	}
-	else if (City::nameChance == 4) {
-		City::cityName = "";
-	}
-	else if (City::nameChance == 5) {
-		City::cityName = "";
-	}
-	else if (City::nameChance == 6) {
-		City::cityName = "";
-	}
-	else if (City::nameChance == 7) {
-		City::cityName = "";
-	}
+	City::cityName = "";
+}
+else if (City::nameChance == 1) {
+	City::cityName = "";
+}
+else if (City::nameChance == 2) {
+	City::cityName = "";
+}
+else if (City::nameChance == 3) {
+	City::cityName = "";
+}
+else if (City::nameChance == 4) {
+	City::cityName = "";
+}
+else if (City::nameChance == 5) {
+	City::cityName = "";
+}
+else if (City::nameChance == 6) {
+	City::cityName = "";
+}
+else if (City::nameChance == 7) {
+	City::cityName = "";
+}
 
 void City::print1stCityStatus(void) {
-	cout << "You've arrived at " << City::cityName << " city after a long journey on the roads. Your legs feel like jelly.";
+	std::cout << "You've arrived at " << City::cityName << " city after a long journey on the roads. Your legs feel like jelly.";
 }
 void City::mugging(void) {
 	int randGold = rand() % 300 + 401;
 	string userIn = "";
 	int runChance = 0;
 	int randHP = 0;
-	cout << "Some stinky dwarfs walk up with British RML 2.5 inch 10 pounder cannons and demand " << randGold << " gold. You can try to run or give in. Wyd? Type run to run or rip to give in.\n" //You lose " << randFood << " food.";
+	std::cout << "Some stinky dwarfs walk up with British RML 2.5 inch 10 pounder cannons and demand " << randGold << " gold. You can try to run or give in. Wyd? Type run to run or rip to give in.\n"; //You lose " << randFood << " food.";
 
 		while (userIn != "run" && userIn != "fight" && userIn != "rip") {
 			cin >> userIn; //constantly asks for user input until the user enters a valid command
 			runChance = rand() % 5 + 1; //1 in 5 chance to escape
 			randHP = rand() % 40 + 1;
 			if (userIn == "run" && runChance == 0) { //if runChance is 0 the player doesn't escape
-				cout << "You escape the dwarfs with your gold.\n";
+				std::cout << "You escape the dwarfs with your gold.\n";
 			}
 			else if (userIn == "run") {
 				gold -= randGold + 200;
-				cout << "The dwarfs stun you with a cannonball doing , run up to you, and steal " << randGold << " gold along with 200 more gold. Nice job.\n";
+				std::cout << "The dwarfs stun you with a cannonball doing , run up to you, and steal " << randGold << " gold along with 200 more gold. Nice job.\n";
 			}
 			else if (userIn == "rip") {
 				gold -= randGold;
-				cout << "'Thanks for the " << randGold << " gold, dummy.'\n";
+				std::cout << "'Thanks for the " << randGold << " gold, dummy.'\n";
 			}
 			else {
-				cout << "Sorry, didn't understand that." << endl;
+				std::cout << "Sorry, didn't understand that." << endl;
 			}
 		}
 }
@@ -235,6 +232,7 @@ void City::shop(void) {
 	else if (sNameChance == 3) {
 		shopName = "";
 	}
+	int a = 9;
 	if (sONameChance == 0) {
 		sOName = "";
 	}
@@ -247,31 +245,31 @@ void City::shop(void) {
 	else if (sONameChance == 3) {
 		sOName = "";
 	}
-	cout << "While walking through the city you encounter " << shopName << " shop. " << sOName << " is selling schwarma and potions. You can buy 1 food for 100 gold or 10 HP for 200 gold. Type food for food, hp for HP, or done to leave the shop.\n";
+	std::cout << "While walking through the city you encounter " << shopName << " shop. " << sOName << " is selling schwarma and potions. You can buy 1 food for 100 gold or 10 HP for 200 gold. Type food for food, hp for HP, or done to leave the shop.\n";
 	while (userIn != "done") { //will continue to ask for input until the user enters a valid command
 		cin >> userIn;
 		if (userIn == "food") {
 			buyFood = 1;
-			cout << "\nYou buy 1 food for 100 gold and leave the shop.\n";
+			std::cout << "\nYou buy 1 food for 100 gold and leave the shop.\n";
 		}
 		else if (userIn == "hp") {
 			buyHP = 1;
-			cout << "\nYou buy 10 HP for 200 gold and leave the shop.\n";
+			std::cout << "\nYou buy 10 HP for 200 gold and leave the shop.\n";
 		}
 		else if (userIn != "done") {
-			cout << "\nSorry, didn't understand that.\n";
+			std::cout << "\nSorry, didn't understand that.\n";
 		}
 	}
 
 }
 
 class Road : public Inv {
-		 public: 
+public:
 
-			 void print1stStatus(void);
-		 
-		 };
+	void print1stStatus(void);
+
+};
 
 void Road::print1stStatus(void) {
-	cout << "You're back on the road after leaving your last area.\n";
+	std::cout << "You're back on the road after leaving your last area.\n";
 }
