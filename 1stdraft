@@ -1,7 +1,7 @@
 
-#pragma once
 #include <iostream>
 #include <cstdlib>
+#include <string>
 using namespace std;
 class Inv {
 public: 
@@ -83,38 +83,9 @@ void Inv::goldGood(void) {
 class Forest : public Inv {
 public: 
 	string forestName;
-	int nameChance = rand() % 9 + 1;
+	int nameChance;
 
-	if (nameChance == 0) {
-		forestName = "Amazon";
-	}
-	else if (nameChance == 1) {
-		forestName = "Ligma";
-	}
-	else if (nameChance == 2) {
-		forestName = "";
-	}
-	else if (nameChance == 3) {
-		forestName = "";
-	}
-	else if (nameChance == 4) {
-		forestName = "";
-	}
-	else if (nameChance == 5) {
-		forestName = "";
-	}
-	else if (nameChance == 6) {
-		forestName = "";
-	}
-	else if (nameChance == 7) {
-		forestName = "";
-	}
-	else if (nameChance == 8) {
-		forestName = "";
-	}
-	else if (nameChance == 9) {
-		forestName = "";
-	}
+
 
 	void print1stForestStatus(void);
 
@@ -124,6 +95,40 @@ public:
 
 
 };
+    Forest::nameChance = rand() % 9 + 1;
+
+	if (Forest::nameChance == 0) {
+		Forest::forestName = "Amazon";
+	}
+	else if (Forest::nameChance == 1) {
+		Forest::forestName = "Ligma";
+	}
+	else if (Forest::nameChance == 2) {
+		Forest::forestName = "";
+	}
+	else if (Forest::nameChance == 3) {
+		Forest::forestName = "";
+	}
+	else if (Forest::nameChance == 4) {
+		Forest::forestName = "";
+	}
+	else if (Forest::nameChance == 5) {
+		Forest::forestName = "";
+	}
+	else if (Forest::nameChance == 6) {
+		Forest::forestName = "";
+	}
+	else if (Forest::nameChance == 7) {
+		Forest::forestName = "";
+	}
+	else if (Forest::nameChance == 8) {
+		Forest::forestName = "";
+	}
+	else if (Forest::nameChance == 9) {
+		Forest::forestName = "";
+	}
+
+
 
 void Forest::print1stForestStatus(void) {
 	cout << "You've arrived at the " << forestName << " forest." << endl; //forestName is randomly generated above
@@ -137,33 +142,10 @@ void Forest::treeFoodBandits(void) {
 
 class City : public Inv {
 public: 
-	string cityName = "";
-	int nameChance = rand() % 7 + 1;
+	string cityName;
+	int nameChance;
 
-	if (nameChance == 0) {
-		cityName = "";
-	}
-	else if (nameChance == 1) {
-		cityName = "";
-	}
-	else if (nameChance == 2) {
-		cityName = "";
-	}
-	else if (nameChance == 3) {
-		cityName = "";
-	}
-	else if (nameChance == 4) {
-		cityName = "";
-	}
-	else if (nameChance == 5) {
-		cityName = "";
-	}
-	else if (nameChance == 6) {
-		cityName = "";
-	}
-	else if (nameChance == 7) {
-		cityName = "";
-	}
+	
 
 	void print1stCityStatus(void);
 
@@ -175,8 +157,35 @@ public:
 
 };
 
+City::nameChance = rand() % 7 + 1;
+
+if (City::nameChance == 0) {
+		City::cityName = "";
+	}
+	else if (City::nameChance == 1) {
+		City::cityName = "";
+	}
+	else if (City::nameChance == 2) {
+		City::cityName = "";
+	}
+	else if (City::nameChance == 3) {
+		City::cityName = "";
+	}
+	else if (City::nameChance == 4) {
+		City::cityName = "";
+	}
+	else if (City::nameChance == 5) {
+		City::cityName = "";
+	}
+	else if (City::nameChance == 6) {
+		City::cityName = "";
+	}
+	else if (City::nameChance == 7) {
+		City::cityName = "";
+	}
+
 void City::print1stCityStatus(void) {
-	cout << "You've arrived at " << cityName << " city after a long journey on the roads. Your legs feel like jelly.";
+	cout << "You've arrived at " << City::cityName << " city after a long journey on the roads. Your legs feel like jelly.";
 }
 void City::mugging(void) {
 	int randGold = rand() % 300 + 401;
@@ -201,7 +210,7 @@ void City::mugging(void) {
 				cout << "'Thanks for the " << randGold << " gold, dummy.'\n";
 			}
 			else {
-				cout << "Sorry, didn't understand that.\n" << endl;
+				cout << "Sorry, didn't understand that." << endl;
 			}
 		}
 }
