@@ -1,0 +1,157 @@
+#include <iostream>
+#include <cstdlib>
+#include <string>
+#include "Classes.h"
+using namespace std;
+int main() {
+	Inv aInv;
+	cout << "(intro text) \n";
+	aInv.genInvText();
+	cout << endl;
+	int areaChance;
+	int eventChance;
+	while (aInv.getHP() >= 1) { //while player has more than 0 health the game runs
+		if (aInv.getFood() < 1) {
+			aInv.hp -= 5; //if player has no food they lose health
+			cout << "You have no food and you're slowly deteriorating. You could really go for anything right now, especially food. You lose 5 health.";
+		}
+			areaChance = rand() % 3 + 1;
+			areaChance = 0; //                                           R E M O V E  W H E N  D O N E  W  A R E A S
+			eventChance = rand() % 9 + 1;
+			Road road;
+			road.print1stStatus();
+			for (int i = 0; i < 2; i++) {
+				if (eventChance == 0) {
+					aInv.mugging();
+				}
+				if (eventChance == 1) {
+					aInv.nice();
+				}
+				if (eventChance == 2) {
+					aInv.foodBad();
+				}
+				if (eventChance == 3) {
+					aInv.foodGood();
+				}
+				if (eventChance == 4) {
+					aInv.goldGood();
+				}
+				if (eventChance == 5) {
+					aInv.nice2();
+				}
+				/*if (eventChance == 6) {
+					aInv.();
+				}
+				if (eventChance == 7) {
+					aInv.();
+				}
+				if (eventChance == 8) {
+					aInv.();
+				}
+				if (eventChance == 9) {
+					aInv.();
+				}
+				*/
+				eventChance = rand() % 9 + 1;
+			}
+
+
+			if (areaChance == 0) { //the first scenario out of 4 is arriving at a city
+				City city;
+				city.print1stCityStatus();
+				aInv.genInvText();
+				eventChance = rand() % 10 + 1;
+				for (int i = 0; i < 3; i++) {
+					if (eventChance == 0) {
+						aInv.mugging();
+					}
+					if (eventChance == 1) {
+						aInv.nice();
+					}
+					if (eventChance == 2) {
+						aInv.foodBad();
+					}
+					if (eventChance == 3) {
+						aInv.foodGood();
+					}
+					if (eventChance == 4) {
+						aInv.goldGood();
+					}
+					if (eventChance == 5) {
+						aInv.nice2();
+					}
+					/*if (eventChance == 6) {
+						aInv.();
+					}
+					if (eventChance == 7) {
+						aInv.();
+					}
+					if (eventChance == 8) {
+						aInv.();
+					}
+					if (eventChance == 9) {
+						aInv.();
+					}
+					*/
+					if (eventChance == 10) {
+						city.mugging();
+					}
+					
+					eventChance = rand() % 9 + 1;
+				}
+
+
+			}
+			if (areaChance == 1) { //the 2nd scenario out of 4 is arriving at a forest
+				Forest forest;
+				forest.print1stForestStatus();
+				aInv.genInvText();
+				eventChance = rand() % 10 + 1;
+				for (int i = 0; i < 3; i++) {
+					if (eventChance == 0) {
+						aInv.mugging();
+					}
+					if (eventChance == 1) {
+						aInv.nice();
+					}
+					if (eventChance == 2) {
+						aInv.foodBad();
+					}
+					if (eventChance == 3) {
+						aInv.foodGood();
+					}
+					if (eventChance == 4) {
+						aInv.goldGood();
+					}
+					if (eventChance == 5) {
+						aInv.nice2();
+					}/*
+					if (eventChance == 6) {
+						aInv.();
+					}
+					if (eventChance == 7) {
+						aInv.();
+					}
+					if (eventChance == 8) {
+						aInv.();
+					}
+					if (eventChance == 9) {
+						aInv.();
+					}
+					*/
+					if (eventChance == 10) {
+						forest.treeFoodBandits();
+					}
+					eventChance = rand() % 9 + 1;
+				}
+				
+
+
+			}
+			
+		
+
+	}
+	cout << "You are now dead. You got to " << aInv.getAreas() << " areas. Woop dee doo." << endl; //this would only happen after the player has less than 1 health
+	return 0;
+}
