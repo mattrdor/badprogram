@@ -136,19 +136,7 @@ int main() {
 					}
 				}
 			}
-			/*if (eventChance == 6) {
-				aInv.();
-			}
-			if (eventChance == 7) {
-				aInv.();
-			}
-			if (eventChance == 8) {
-				aInv.();
-			}
-			if (eventChance == 9) {
-				aInv.();
-			}
-			*/
+
 			srand(time(NULL));
 			eventChance = rand() % 5 + 1;
 		}
@@ -311,17 +299,7 @@ int main() {
 					}
 					std::cout << "You leave the shop and continue walking around the city."<<std::endl;
 				}
-				/*
-				if (eventChance == 7) {
-					aInv.();
-				}
-				if (eventChance == 8) {
-					aInv.();
-				}
-				if (eventChance == 9) {
-					aInv.();
-				}
-				*/
+
 				if (eventChance == 7) {
 					srand(time(NULL));
 					int randGold = rand() % 300 + 401;
@@ -463,20 +441,6 @@ int main() {
 							gold += randGold;
 							std::cout << "You witness a frail dwarf fall to the ground in front of you due to a heart attack. You take his " << randGold << " gold.\n";
 							system("pause");
-						}/*
-						if (eventChance == 6) {
-							aInv.();
-						}
-						if (eventChance == 7) {
-							aInv.();
-						}
-						if (eventChance == 8) {
-							aInv.();
-						}
-						if (eventChance == 9) {
-							aInv.();
-						}
-						*/
 						if (eventChance == 6 || eventChance == 7) {
 							srand(time(NULL));
 							int randFood = rand() % 5 + 2;
