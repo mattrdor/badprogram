@@ -441,6 +441,7 @@ int main() {
 							gold += randGold;
 							std::cout << "You witness a frail dwarf fall to the ground in front of you due to a heart attack. You take his " << randGold << " gold.\n";
 							system("pause");
+						}
 						if (eventChance == 6 || eventChance == 7) {
 							srand(time(NULL));
 							int randFood = rand() % 5 + 2;
